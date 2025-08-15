@@ -9,24 +9,30 @@ import (
 Problem 1 — Hello, World (Syntax & Basics)
 
 Goal:
-  Print "Hello, <name>!" to stdout. If a name is provided as the first CLI arg, use it;
-  otherwise default to "World".
+
+	Print "Hello, <name>!" to stdout. If a name is provided as the first CLI arg, use it;
+	otherwise default to "World".
 
 Why:
-  Teaches package layout, main entrypoint, stdlib fmt/os, and basic branching.
+
+	Teaches package layout, main entrypoint, stdlib fmt/os, and basic branching.
 
 Run:
-  go run ./1_hello_world Mike
-  # -> Hello, Mike!
+
+	go run ./1_hello_world Mike
+	# -> Hello, Mike!
 
 TODOs:
-  1) Read optional name from os.Args.
-  2) Default to "World" if no name provided.
-  3) Print the greeting.
+ 1. Read optional name from os.Args.
+ 2. Default to "World" if no name provided.
+ 3. Print the greeting.
 */
 func main() {
-	// TODO: implement
-	_ = fmt.Printf
-	_ = os.Args
-	fmt.Println("TODO")
+	var nameArg string
+	if len(os.Args) == 1 {
+		nameArg = "world"
+	} else {
+		nameArg = os.Args[1]
+	}
+	fmt.Printf("Hello, %s!", nameArg)
 }
