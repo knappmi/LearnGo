@@ -9,17 +9,20 @@ import (
 Problem 6 — CLI Flags
 
 Goal:
-  Parse a --name flag and print "Hello, <name>!". Default to "World".
+
+	Parse a --name flag and print "Hello, <name>!". Default to "World".
 
 Why:
-  Teaches the standard `flag` package and CLI ergonomics.
+
+	Teaches the standard `flag` package and CLI ergonomics.
 
 Run:
-  go run ./6_cli_flags --name Mike
-  go run ./6_cli_flags
+
+	go run ./6_cli_flags --name Mike
+	go run ./6_cli_flags
 */
 func main() {
-	// TODO: implement
-	_ = flag.String
-	fmt.Println("TODO")
+	name := flag.String("name", "World", "What's your name?")
+	flag.Parse()
+	fmt.Printf("Hello, %s!", *name)
 }
